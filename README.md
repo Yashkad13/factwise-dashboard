@@ -10,5 +10,7 @@ A clean, professional employee dashboard built with **React** and **AG Grid** (c
 - Custom cell renderers — status badges, rating colors, skill tags
 
 ## How to Run
-npm install
-npm start
+
+1. `npm install`
+2. `npm start`
+3. Open http://localhost:3000
