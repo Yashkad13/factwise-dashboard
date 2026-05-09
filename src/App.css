@@ -1,38 +1,170 @@
-.App {
-  text-align: center;
+/* ─────────────────────────────────────────
+   App.css  –  Styles for the whole dashboard
+   ───────────────────────────────────────── */
+
+/* Reset default browser spacing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* ── Top header bar ── */
+.header {
+  background-color: #1a1a2e;
   color: white;
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.App-link {
-  color: #61dafb;
+.header h1 {
+  font-size: 20px;
+  font-weight: 600;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header span {
+  font-size: 13px;
+  color: #aaa;
+  margin-top: 2px;
+}
+
+/* ── Main content area ── */
+.dashboard {
+  padding: 24px 28px;
+}
+
+/* ── Stat cards row ── */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 10px;
+  padding: 18px 20px;
+  border-left: 4px solid #4f46e5;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+
+.stat-card.green  { border-left-color: #10b981; }
+.stat-card.orange { border-left-color: #f59e0b; }
+.stat-card.red    { border-left-color: #ef4444; }
+
+.stat-label {
+  font-size: 12px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.stat-value {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+/* ── Table section ── */
+.table-section {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+
+/* Toolbar above the table (search + filter) */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid #eee;
+  flex-wrap: wrap;
+}
+
+.toolbar h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: auto; /* pushes search+filter to the right */
+}
+
+/* Search input */
+.search-input {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 7px 12px;
+  font-size: 14px;
+  width: 220px;
+  outline: none;
+}
+.search-input:focus {
+  border-color: #4f46e5;
+}
+
+/* Department filter dropdown */
+.filter-select {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 7px 12px;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  background: white;
+}
+.filter-select:focus {
+  border-color: #4f46e5;
+}
+
+/* ── AG Grid table wrapper ── */
+.grid-wrapper {
+  height: 520px; /* Fixed height so the table scrolls inside */
+  width: 100%;
+}
+
+/* ── Status badge (Active / Inactive) ── */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge.active   { background: #d1fae5; color: #065f46; }
+.badge.inactive { background: #fee2e2; color: #991b1b; }
+
+/* ── Performance rating color coding ── */
+.rating-high   { color: #10b981; font-weight: 600; }
+.rating-medium { color: #f59e0b; font-weight: 600; }
+.rating-low    { color: #ef4444; font-weight: 600; }
+
+/* ── Skills tags ── */
+.skill-tag {
+  display: inline-block;
+  background: #ede9fe;
+  color: #5b21b6;
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-size: 11px;
+  margin: 2px 2px;
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 16px;
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 8px;
 }
